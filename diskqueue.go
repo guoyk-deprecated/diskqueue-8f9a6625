@@ -142,6 +142,9 @@ func (d *diskQueue) Delete() error {
 }
 
 func (d *diskQueue) exit(deleted bool) error {
+	if d.exitFlag == 1 {
+		return nil
+	}
 	d.Lock()
 	defer d.Unlock()
 
